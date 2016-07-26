@@ -1,6 +1,5 @@
 package ivcalc;
 
-import ivcalc.calculator.IVCalc;
 import ivcalc.pokemon.Iv;
 import ivcalc.userdata.PokeCollection;
 import ivcalc.userdata.Pokemon;
@@ -105,7 +104,7 @@ public class Controller {
 
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Force");
+            alert.setTitle("Nouveau Pokémon");
             double ancientPercent = -1;
             Pokemon ancientPokemon = null;
             for (Pokemon poke : observableCollection) {
@@ -118,14 +117,14 @@ public class Controller {
             String header = "";
             if(multiple_vals > 0){
                 header = multiple_vals + " possibilités trouvées\n";
-                header += "Nouveau pokémon :";
+                header += "Nouveau Pokémon :";
                 header += pokeToString(pokemon);
             } else {
                 header += "Nouveau pokémon : " + percentFormatter.format(d) + "%";
             }
 
             if (ancientPercent != -1) {
-                header += "\nAncien pokémon : " + percentFormatter.format(ancientPercent) + "%";
+                header += "\nAncien Pokémon : " + percentFormatter.format(ancientPercent) + "%";
                 header += pokeToString(ancientPokemon);
             }
 
