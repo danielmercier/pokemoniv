@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="pokemoniv">
+    <output-path>$PROJECT_DIR$/out/artifacts/pokemoniv</output-path>
+    <root id="root">
+      <element id="archive" name="pokemoniv.jar">
+        <element id="module-output" name="pokemoniv" />
+      </element>
+    </root>
+  </artifact>
+</component>

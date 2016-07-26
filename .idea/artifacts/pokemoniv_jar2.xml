@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="pokemoniv:jar2">
+    <output-path>$PROJECT_DIR$/out/artifacts/pokemoniv_jar2</output-path>
+    <root id="archive" name="pokemoniv.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/src/majsrc/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="pokemoniv" />
+    </root>
+  </artifact>
+</component>

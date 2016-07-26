@@ -62,9 +62,9 @@
             <TableColumn fx:id="cpCol" prefWidth="75.0" text="PC" />
             <TableColumn fx:id="hpCol" prefWidth="75.0" text="PV" />
             <TableColumn fx:id="lvlCol" prefWidth="75.0" text="Poussière" />
-            <TableColumn fx:id="percentCol" prefWidth="92.0" text="Parfait" />
-            <TableColumn prefWidth="75.0" text="ATT" />
-            <TableColumn prefWidth="75.0" text="DEF" />
+            <TableColumn fx:id="minCol" prefWidth="113.0" text="Minimum parfait" />
+            <TableColumn fx:id="maxCol" prefWidth="117.0" text="Maximum parfait" />
+            <TableColumn fx:id="percentCol" prefWidth="118.0" text="Moyenne parfait" />
          </columns>
       </TableView>
    </center>

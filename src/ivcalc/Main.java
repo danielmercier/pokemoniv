@@ -7,6 +7,7 @@ import ivcalc.pokemon.data.Species;
 import ivcalc.pokemon.data.Translation;
 import ivcalc.userdata.*;
 import ivcalc.userdata.Pokemon;
+import ivcalc.util.Util;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -30,7 +31,7 @@ public class Main extends Application {
         Controller controller = loader.getController();
         controller.init();
         primaryStage.setTitle("IV Calculator");
-        primaryStage.setScene(new Scene(root, 900, 600));
+        primaryStage.setScene(new Scene(root, 950, 600));
         primaryStage.show();
     }
 

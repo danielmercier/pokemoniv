@@ -18,19 +18,31 @@ public class Util {
     public static void updateIvCalcData() {
         if(PokeCollection.dataFile.exists()){
             try {
-                PokeCollection collection = new PokeCollection();
+                PokeCollection collection = new PokeCollection(false);
                 BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(PokeCollection.dataFile), "UTF-8"));
                 String line = reader.readLine();
-                if(line != null && line.split(";").length == 4){
-                    while(line != null) {
-                        String[] params = line.split(";");
-                        String name = params[0];
-                        Integer cp = Integer.parseInt(params[1]);
-                        Integer hp = Integer.parseInt(params[2]);
-                        Integer dust = Integer.parseInt(params[3]);
-                        Pokemon p = new Pokemon(Species.getByName(name), cp, hp, dust);
-                        line = reader.readLine();
+                if(line != null){
+                    String params[] = line.split(";");
+                    if(params.length == 5) {
+                        while (line != null) {
+                            params = line.split(";");
+                            String name = params[0];
+                            Integer cp = Integer.parseInt(params[1]);
+                            Integer hp = Integer.parseInt(params[2]);
+                            Integer dust = Integer.parseInt(params[3]);
+                            Pokemon p = new Pokemon(Species.getByName(name), cp, hp, dust);
+                            System.out.println(p);
+                            collection.add(p);
+                            line = reader.readLine();
+                        }
+                        reader.close();
+                        PokeCollection.dataFile.delete();
+                        collection.save();
+                    } else {
+                        reader.close();
                     }
+                } else {
+                    reader.close();
                 }
             } catch (IOException e) {
                 e.printStackTrace();

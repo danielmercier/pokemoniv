@@ -22,6 +22,8 @@ public class Controller {
     @FXML private TableColumn<Pokemon, Integer> hpCol;
     @FXML private TableColumn<Pokemon, Integer> lvlCol;
     @FXML private TableColumn<Pokemon, Pokemon> percentCol;
+    @FXML private TableColumn<Pokemon, Pokemon> minCol;
+    @FXML private TableColumn<Pokemon, Pokemon> maxCol;
     @FXML private TextField hpTextField;
     @FXML private TextField cpTextField;
     @FXML private TextField dustTextField;
@@ -57,6 +59,34 @@ public class Controller {
                     setStyle("");
                 } else {
                     setText(percentFormatter.format(pokemon.getAvgPerfect() * 100.) + "%");
+                }
+            }
+        });
+        minCol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
+        minCol.setCellFactory(column -> new TableCell<Pokemon, Pokemon>(){
+            @Override
+            protected void updateItem(Pokemon pokemon, boolean empty){
+                super.updateItem(pokemon, empty);
+
+                if(pokemon == null || empty){
+                    setText(null);
+                    setStyle("");
+                } else {
+                    setText(percentFormatter.format(pokemon.getMinPerfect() * 100.) + "%");
+                }
+            }
+        });
+        maxCol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
+        maxCol.setCellFactory(column -> new TableCell<Pokemon, Pokemon>(){
+            @Override
+            protected void updateItem(Pokemon pokemon, boolean empty){
+                super.updateItem(pokemon, empty);
+
+                if(pokemon == null || empty){
+                    setText(null);
+                    setStyle("");
+                } else {
+                    setText(percentFormatter.format(pokemon.getMaxPerfect() * 100.) + "%");
                 }
             }
         });
