@@ -1,12 +1,10 @@
 package ivcalc.pokemon;
 
+import ivcalc.pokemon.data.CpMultiplier;
+import ivcalc.pokemon.data.LevelsByStardust;
+import ivcalc.pokemon.data.Species;
 import ivcalc.util.Util;
 
-class Iv{
-    public double STA;
-    public double ATT;
-    public double DEF;
-}
 
 public class Pokemon {
     public int hp;
@@ -34,10 +32,10 @@ public class Pokemon {
         if(level != null){
             this.setLevel(level);
         } else {
-            for (int i = 0; i < LevelsByStardust.levelsByStardust.length; i++ ) {
-                if ( dustPrice == LevelsByStardust.levelsByStardust[i].getKey() ) {
-                    this.levelMin = LevelsByStardust.levelsByStardust[i].getValue();
-                    this.levelMax = LevelsByStardust.levelsByStardust[i+1].getValue() - 0.5;
+            for (int i = 0; i < LevelsByStardust.levelsByStardustAncient.length; i++ ) {
+                if ( dustPrice == LevelsByStardust.levelsByStardustAncient[i].getKey() ) {
+                    this.levelMin = LevelsByStardust.levelsByStardustAncient[i].getValue();
+                    this.levelMax = LevelsByStardust.levelsByStardustAncient[i+1].getValue() - 0.5;
 
                     break;
                 }
@@ -51,7 +49,7 @@ public class Pokemon {
         int minHP = this.getHp( 0 );
         int maxHP = this.getHp( 15 );
 
-        if ( this.hp < this.getHp( 0 ) || this.hp > this.getHp( 15 ) ) {
+        if ( this.hp < minHP || this.hp > maxHP ) {
             return false;
         }
 
@@ -98,7 +96,7 @@ public class Pokemon {
     }
 
     public int getCp( Double sta, Double att, Double def ) {
-        return (int)(Math.floor( 0.1 * Math.pow( this.compositeSTA( sta ), 0.5 ) * this.compositeATT( att ) * Math.pow( this.compositeDEF( (double) def ), 0.5 ) ));
+        return (int)(Math.floor( 0.1 * Math.pow( this.compositeSTA( sta ), 0.5 ) * this.compositeATT( att ) * Math.pow( this.compositeDEF( def ), 0.5 ) ));
     }
 
     public int getHp( int sta ) {

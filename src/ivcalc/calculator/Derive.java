@@ -1,4 +1,7 @@
-package ivcalc.pokemon;
+package ivcalc.calculator;
+
+import ivcalc.pokemon.Pokemon;
+import ivcalc.pokemon.data.Species;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -23,7 +26,6 @@ public class Derive {
 
     public Derive(Species species, int hp, int cp, int dustPrice){
         Pokemon p = new Pokemon(species, hp, cp, dustPrice, null);
-
 
         for ( int l = (int)p.levelMin; l <= p.levelMax; l += 1 ) {
             boolean valid = p.setLevel( l );

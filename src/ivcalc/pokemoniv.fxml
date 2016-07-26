@@ -4,6 +4,7 @@
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ivcalc.Controller">
+<BorderPane prefHeight="600.0" prefWidth="1002.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ivcalc.Controller">
    <left>
       <VBox alignment="CENTER">
          <children>
@@ -27,6 +28,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Label text="Pokémon" />
@@ -37,6 +39,12 @@
                   <TextField fx:id="cpTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField fx:id="hpTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <TextField fx:id="dustTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="Rechargé" GridPane.rowIndex="4" />
+                  <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <children>
+                        <RadioButton fx:id="poweredUp" mnemonicParsing="false" />
+                     </children>
+                  </VBox>
                </children>
             </GridPane>
             <ButtonBar prefHeight="40.0" prefWidth="200.0">
@@ -53,8 +61,10 @@
             <TableColumn fx:id="pokemonCol" prefWidth="75.0" text="Pokémon" />
             <TableColumn fx:id="cpCol" prefWidth="75.0" text="PC" />
             <TableColumn fx:id="hpCol" prefWidth="75.0" text="PV" />
-            <TableColumn fx:id="dustCol" prefWidth="75.0" text="Poussière" />
+            <TableColumn fx:id="lvlCol" prefWidth="75.0" text="Poussière" />
             <TableColumn fx:id="percentCol" prefWidth="92.0" text="Parfait" />
+            <TableColumn prefWidth="75.0" text="ATT" />
+            <TableColumn prefWidth="75.0" text="DEF" />
          </columns>
       </TableView>
    </center>

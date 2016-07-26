@@ -1,4 +1,4 @@
-package ivcalc.pokemon;
+package ivcalc.pokemon.data;
 
 import jdk.nashorn.api.scripting.URLReader;
 
@@ -32,5 +32,9 @@ public class CpMultiplier {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void load(){
+        load(CpMultiplier.class.getResource("cpmultiplierbylevel.csv"));
     }
 }
